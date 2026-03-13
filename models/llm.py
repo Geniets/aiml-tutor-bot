@@ -1,8 +1,8 @@
 import os
 import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from langchain_groq import ChatGroq
 from config.config import GROQ_API_KEY
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 
 def get_chatgroq_model():
