@@ -107,7 +107,7 @@ def chat_page():
                             st.error("No PDFs found in /data folder")
                     except Exception as e:
                         st.error(f"Failed to load PDFs: {str(e)}")
-                        
+
 
         st.divider()
 

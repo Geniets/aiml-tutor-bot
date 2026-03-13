@@ -8,13 +8,18 @@ from langchain_community.vectorstores import FAISS
 from models.embeddings import get_embedding_model
 
 
+
 def load_pdfs_from_folder(folder_path="data"):
     """Load all PDFs from the data folder"""
     try:
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        folder_path = os.path.join(base_dir, folder_path)
+
         all_docs = []
         pdf_files = [f for f in os.listdir(folder_path) if f.endswith(".pdf")]
-        
+
         if not pdf_files:
+            print(f"No PDFs found in {folder_path}")
             return []
         
         for pdf_file in pdf_files:
