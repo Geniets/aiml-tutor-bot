@@ -28,7 +28,7 @@ def load_vector_store():
 
     except Exception as e:
         st.error(f"RAG error: {e}")
-        return None──────────────────────
+        return None
 # HELPER: Get chat response
 # ─────────────────────────────────────────────
 def get_chat_response(chat_model, messages, system_prompt):
