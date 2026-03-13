@@ -14,11 +14,21 @@ from utils.quiz import generate_quiz, parse_quiz
 def load_vector_store():
     """Load and cache vector store so it only builds once"""
     try:
+        import os
+
+        st.write("Current working directory:", os.getcwd())
+
+        if os.path.exists("data"):
+            st.write("Files inside data folder:", os.listdir("data"))
+        else:
+            st.write("❌ Data folder not found")
+
         vector_store = build_rag_pipeline("data")
         return vector_store
+
     except Exception as e:
-        return None
-# ─────────────────────────────────────────────
+        st.error(f"RAG error: {e}")
+        return None──────────────────────
 # HELPER: Get chat response
 # ─────────────────────────────────────────────
 def get_chat_response(chat_model, messages, system_prompt):
