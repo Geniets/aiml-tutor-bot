@@ -2,7 +2,9 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from langchain_groq import ChatGroq
-from config.config import GROQ_API_KEY
+import streamlit as st
+
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
 
 def get_chatgroq_model():
